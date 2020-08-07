@@ -12,6 +12,7 @@ if [ -f "$HOME/.profile" ]; then
 fi
 
 echo "Replace $profile"
+cp .bashrc $HOME
 cp .bashrc $profile
 cp .tmux.conf $HOME
 cp .vimrc $HOME
