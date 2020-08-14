@@ -75,3 +75,4 @@ source $HOME/.local/bin/fj.sh
 ## aliases
 alias grep='grep --color=auto'
 alias ls='ls --color'
+alias cown='sudo chown -R zhuhaisheng:zhuhaisheng'
