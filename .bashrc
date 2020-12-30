@@ -55,7 +55,8 @@ function parse_git_dirty {
 }
 
 PROMPT_COMMAND=set_prompt
-export LANG=en_US.UTF-8 
+export LANG=en_US.UTF-8
+export LC_ALL=C.UTF-8
 export TERM=xterm-256color
 export QT_XKB_CONFIG_ROOT=/usr/share/X11/xkb
 bind 'set completion-ignore-case on'
