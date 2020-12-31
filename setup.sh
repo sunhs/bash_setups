@@ -1,23 +1,39 @@
+shell_chosen=$1
+
+if [ $shell_chosen = "bash" ]; then
+    echo "Setting up bash"
+elif [ $shell_chosen = "zsh" ]; then
+    echo "Setting up zsh"
+else
+    echo "Please choose bash or zsh"
+    exit 1
+fi
+
 echo "========================================================="
 echo "Copying files."
 echo "========================================================="
-profile="$HOME/.bashrc"
+mkdir -p $HOME/.local/bin
 
-if [ -f "$HOME/.bash_profile" ]; then
-    profile="$HOME/.bash_profile"
+if [ $shell_chosen = "bash" ]; then
+    profile="$HOME/.bashrc"
+
+    if [ -f "$HOME/.bash_profile" ]; then
+        profile="$HOME/.bash_profile"
+    fi
+
+    if [ -f "$HOME/.profile" ]; then
+      profile="$HOME/.profile"
+    fi
+
+    cp .bashrc $HOME
+    cp .bashrc $profile
+    cp fj.sh fastjump $HOME/.local/bin
+else
+    cp .zshrc $HOME
 fi
 
-if [ -f "$HOME/.profile" ]; then
-    profile="$HOME/.profile"
-fi
-
-echo "Replace $profile"
-cp .bashrc $HOME
-cp .bashrc $profile
 cp .tmux.conf $HOME
 cp .vimrc $HOME
-mkdir -p $HOME/.local/bin
-cp fj.sh fastjump $HOME/.local/bin
 
 echo "========================================================="
 echo "Installing tmux."
