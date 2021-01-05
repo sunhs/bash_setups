@@ -109,7 +109,7 @@ export CONDA_HOME=$HOME/conda
 export CUDA_HOME=/usr/local/cuda
 export LIBRARY_PATH=$CUDA_HOME/lib64:/usr/local/lib:/usr/lib:/usr/lib/x86_64-linux-gnu:/lib:/lib/x86_64-linux-gnu
 export LD_LIBRARY_PATH=$LIBRARY_PATH
-export PATH=$HOME/.local/bin:$CONDA_HOME/bin:$PATH:${CUDA_HOME}/bin
+export PATH=$HOME/.local/bin:$CONDA_HOME/bin:$HOME/go/bin:$PATH:${CUDA_HOME}/bin
 
 ## sources
 source $HOME/.local/bin/fj.sh
