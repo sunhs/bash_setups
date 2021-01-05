@@ -101,6 +101,9 @@ source $ZSH/oh-my-zsh.sh
 HYPHEN_INSENSITIVE="true"
 DISABLE_UPDATE_PROMPT="true"
 
+bindkey \^U backward-kill-line
+bindkey '\ef' emacs-forward-word
+
 export LANG=en_US.UTF-8
 export LC_ALL=C.UTF-8
 
