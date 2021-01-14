@@ -121,3 +121,4 @@ source $HOME/.local/bin/fj.sh
 alias grep='grep --color=auto'
 alias ls='ls --color'
 alias cown='sudo chown -R zhuhaisheng:zhuhaisheng'
+alias tm='tmux a -t fuck -d'
