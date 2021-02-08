@@ -106,6 +106,7 @@ bindkey '\ef' emacs-forward-word
 
 export LANG=en_US.UTF-8
 export LC_ALL=C.UTF-8
+export TERM=xterm-256color
 
 ## paths
 export CONDA_HOME=$HOME/conda
@@ -122,3 +123,14 @@ alias grep='grep --color=auto'
 alias ls='ls --color'
 alias cown='sudo chown -R zhuhaisheng:zhuhaisheng'
 alias tm='tmux a -t fuck -d'
+alias emd='emacs --daemon'
+alias emc='emacsclient -nw'
+alias emk="emacsclient -e '(save-buffers-kill-emacs)'"
+function em() {
+    emd_exists=$(ps aux | grep "[e]macs --daemon" | wc -l)
+    if [ $emd_exists -ne 0 ]; then
+        emacsclient -nw $@
+    else
+        emacs --daemon
+    fi
+}
