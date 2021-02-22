@@ -126,7 +126,7 @@ alias tm='tmux a -t fuck -d'
 alias emd='emacs --daemon'
 alias emc='emacsclient -nw'
 alias emk="emacsclient -e '(save-buffers-kill-emacs)'"
-function em() {
+function e() {
     emd_exists=$(ps aux | grep "[e]macs --daemon" | wc -l)
     if [ $emd_exists -ne 0 ]; then
         emacsclient -nw $@
