@@ -124,8 +124,12 @@ alias ls='ls --color'
 alias cown='sudo chown -R zhuhaisheng:zhuhaisheng'
 alias tm='tmux a -t fuck -d'
 alias emd='emacs --daemon'
-alias emc='emacsclient -nw'
-alias emk="emacsclient -e '(save-buffers-kill-emacs)'"
+function emk() {
+    emd_pid=$(ps aux | grep "[e]macs --daemon" | awk '{print $2}')
+    if [ "$emd_pid" != "" ]; then
+        kill -9 $emd_pid
+    fi
+}
 function e() {
     emd_exists=$(ps aux | grep "[e]macs --daemon" | wc -l)
     if [ $emd_exists -ne 0 ]; then
