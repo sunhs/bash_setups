@@ -123,7 +123,6 @@ alias grep='grep --color=auto'
 alias ls='ls --color'
 alias cown='sudo chown -R zhuhaisheng:zhuhaisheng'
 alias tm='tmux a -t fuck -d'
-alias emd='emacs --daemon'
 function emk() {
     emd_pid=$(ps aux | grep "[e]macs --daemon" | awk '{print $2}')
     if [ "$emd_pid" != "" ]; then
