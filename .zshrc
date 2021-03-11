@@ -132,7 +132,11 @@ function emk() {
 function e() {
     emd_exists=$(ps aux | grep "[e]macs --daemon" | wc -l)
     if [ $emd_exists -ne 0 ]; then
-        emacsclient -nw $@
+        if [ "$LC_TERMINAL" = "iTerm2" -a -f "$HOME/.terminfo/x/xterm-24bit" ]; then
+            TERM=xterm-24bit emacsclient -nw $@
+        else
+            emacsclient -nw $@
+        fi
     else
         emacs --daemon
     fi
