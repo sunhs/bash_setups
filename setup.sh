@@ -11,10 +11,10 @@ if [ $# -ge 2 ]; then
 fi
 
 
-bash shrc/install.sh $shell_chosen $platform || exit 1
-bash fastjump/install.sh || exit 1
-bash vim/install.sh || exit 1
+cd shrc && bash install.sh $shell_chosen $platform && cd - || exit 1
+cd fastjump && bash install.sh && cd - || exit 1
+cd vim && bash install.sh && cd - || exit 1
 
 if [ $platform = "linux" ]; then
-    bash tmux/install.sh || exit 1
+    cd tmux && bash install.sh && cd - || exit 1
 fi
