@@ -4,9 +4,9 @@ echo "========================================================="
 echo "Installing tmux."
 echo "========================================================="
 if [ ! -f $HOME/.local/bin/tmux ]; then
-    sudo apt-get -y install libevent-dev libncurses-dev
+    sudo apt-get -y install libevent-dev libncurses-dev > /dev/null
     mkdir -p $HOME/.tmux && cd $HOME/.tmux
-    wget https://github.com/tmux/tmux/releases/download/3.1/tmux-3.1.tar.gz
+    wget https://github.com/tmux/tmux/releases/download/3.1/tmux-3.1.tar.gz > /dev/null
     tar zxf tmux-3.1.tar.gz && rm tmux-3.1.tar.gz
     cd tmux-3.1
     mkdir build && cd build

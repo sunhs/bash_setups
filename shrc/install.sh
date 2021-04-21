@@ -1,11 +1,12 @@
 shell_chosen=$1
 platform=$2
 
+echo "========================================================="
 if [ $shell_chosen = "bash" ]; then
     echo "Setting up bash"
 elif [ $shell_chosen = "zsh" ]; then
     if [ $platform == "linux" ]; then
-        echo "Setting up zsh for linx"
+        echo "Setting up zsh for linux"
     elif [ $platform == "mac" ]; then
         echo "Setting up zsh for mac"
     else
@@ -16,10 +17,8 @@ else
     echo "Please choose bash or zsh"
     exit 1
 fi
+echo "========================================================="
 
-echo "========================================================="
-echo "Copying files."
-echo "========================================================="
 if [ $shell_chosen = "bash" ]; then
     profile="$HOME/.bashrc"
 
