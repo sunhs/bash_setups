@@ -1,6 +1,6 @@
 mkdir -p $HOME/.local/bin
 
-shell_chosen=zhs
+shell_chosen=zsh
 platform=linux
 
 if [ $# -ge 1 ]; then
