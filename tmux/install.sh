@@ -1,8 +1,6 @@
 ln -sf $(pwd)/tmux.conf $HOME/.tmux.conf
 
-echo "========================================================="
-echo "Installing tmux."
-echo "========================================================="
+
 if [ ! -f $HOME/.local/bin/tmux ]; then
     sudo apt-get -y install libevent-dev libncurses-dev > /dev/null
     mkdir -p $HOME/.tmux && cd $HOME/.tmux
@@ -15,9 +13,6 @@ if [ ! -f $HOME/.local/bin/tmux ]; then
     ln -s $HOME/.tmux/tmux-3.1/build/tmux $HOME/.local/bin/tmux
 fi
 
-echo "========================================================="
-echo "Installing tmux theme."
-echo "========================================================="
 if [ ! -d $HOME/.tmux/tmux-themepack ]; then
     cd $HOME/.tmux
     git clone https://github.com/jimeh/tmux-themepack.git

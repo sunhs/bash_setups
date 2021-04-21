@@ -1,8 +1,5 @@
 ln -sf $(pwd)/vimrc $HOME/.vimrc
 
-echo "========================================================="
-echo "Installing vim color scheme."
-echo "========================================================="
 if [ ! -d $HOME/.vim/colors ]; then
     mkdir -p $HOME/.vim/colors && cd $HOME/.vim
     git clone https://github.com/rafi/awesome-vim-colorschemes.git

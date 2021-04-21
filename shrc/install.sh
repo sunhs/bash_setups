@@ -1,7 +1,6 @@
 shell_chosen=$1
 platform=$2
 
-echo "========================================================="
 if [ $shell_chosen = "bash" ]; then
     echo "Setting up bash"
 elif [ $shell_chosen = "zsh" ]; then
@@ -17,7 +16,6 @@ else
     echo "Please choose bash or zsh"
     exit 1
 fi
-echo "========================================================="
 
 if [ $shell_chosen = "bash" ]; then
     profile="$HOME/.bashrc"
