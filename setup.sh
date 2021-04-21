@@ -25,15 +25,16 @@ if [ $shell_chosen = "bash" ]; then
       profile="$HOME/.profile"
     fi
 
-    cp .bashrc $HOME
-    cp .bashrc $profile
-    cp fj.sh fastjump $HOME/.local/bin
+    ln -sf $(pwd)/.bashrc $HOME
+    ln -sf $(pwd)/.bashrc $HOME/$profile
 else
-    cp .zshrc $HOME
+    ln -sf $(pwd)/.zshrc $HOME
 fi
 
-cp .tmux.conf $HOME
-cp .vimrc $HOME
+ln -sf $(pwd)/fj.sh $HOME/.local/bin/
+ln -sf $(pwd)/fastjump $HOME/.local/bin/
+ln -sf $(pwd).tmux.conf $HOME
+ln -sf $(pwd).vimrc $HOME
 
 echo "========================================================="
 echo "Installing tmux."
