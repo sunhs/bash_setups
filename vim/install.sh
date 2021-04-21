@@ -1,4 +1,4 @@
-ln -sf $(pwd).vimrc $HOME
+ln -sf $(pwd)/.vimrc $HOME
 
 echo "========================================================="
 echo "Installing vim color scheme."

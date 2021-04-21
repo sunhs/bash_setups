@@ -1,4 +1,4 @@
-ln -sf $(pwd).tmux.conf $HOME
+ln -sf $(pwd)/.tmux.conf $HOME
 
 echo "========================================================="
 echo "Installing tmux."
@@ -9,7 +9,9 @@ if [ ! -f $HOME/.local/bin/tmux ]; then
     wget https://github.com/tmux/tmux/releases/download/3.1/tmux-3.1.tar.gz
     tar zxf tmux-3.1.tar.gz && rm tmux-3.1.tar.gz
     cd tmux-3.1
-    mkdir build && cd build && ../configure && make
+    mkdir build && cd build
+    ../configure > /dev/null
+    make > /dev/null
     ln -s $HOME/.tmux/tmux-3.1/build/tmux $HOME/.local/bin/tmux
 fi
 
