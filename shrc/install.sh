@@ -30,8 +30,8 @@ if [ $shell_chosen = "bash" ]; then
       profile="$HOME/.profile"
     fi
 
-    ln -sf $(pwd)/bashrc $HOME/.bashrc
-    ln -sf $(pwd)/bashrc $HOME/$profile
+    cp $(pwd)/bashrc $HOME/.bashrc
+    cp $(pwd)/bashrc $HOME/$profile
 else
-    ln -sf $(pwd)/zshrc-$platform $HOME/.zshrc
+    cp -sf $(pwd)/zshrc-$platform $HOME/.zshrc
 fi

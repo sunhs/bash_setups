@@ -1,4 +1,4 @@
-ln -sf $(pwd)/tmux.conf $HOME/.tmux.conf
+cp -sf $(pwd)/tmux.conf $HOME/.tmux.conf
 
 echo "========================================================="
 echo "Installing tmux."
