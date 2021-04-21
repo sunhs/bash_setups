@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/zhuhaisheng/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -113,16 +113,16 @@ export CONDA_HOME=$HOME/conda
 export CUDA_HOME=/usr/local/cuda
 export LIBRARY_PATH=$CUDA_HOME/lib64:/usr/local/lib:/usr/lib:/usr/lib/x86_64-linux-gnu:/lib:/lib/x86_64-linux-gnu
 export LD_LIBRARY_PATH=$LIBRARY_PATH
-export PATH=$HOME/.local/bin:$CONDA_HOME/bin:$HOME/go/bin:$PATH:${CUDA_HOME}/bin
+export PATH=$HOME/.local/bin:$CONDA_HOME/bin:$HOME/go/bin:$PATH:${CUDA_HOME}/bin:/opt/homebrew/bin
+export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/mlplat
 
 ## sources
 source $HOME/.local/bin/fj.sh
 
 ## aliases
 alias grep='grep --color=auto'
-alias ls='ls --color'
-alias cown='sudo chown -R zhuhaisheng:zhuhaisheng'
-alias tm='tmux a -t fuck -d'
+alias kc='kubectl'
+
 function emk() {
     emd_pid=$(ps aux | grep "[e]macs --daemon" | awk '{print $2}')
     if [ "$emd_pid" != "" ]; then
@@ -132,7 +132,7 @@ function emk() {
 function e() {
     emd_exists=$(ps aux | grep "[e]macs --daemon" | wc -l)
     if [ $emd_exists -ne 0 ]; then
-        if [ "$LC_TERMINAL" = "iTerm2" -a -f "$HOME/.terminfo/x/xterm-24bit" ]; then
+        if [ "$LC_TERMINAL" = "iTerm2" -a -f "$HOME/.terminfo/78/xterm-24bit" ]; then
             TERM=xterm-24bit emacsclient -nw $@
         else
             emacsclient -nw $@
@@ -141,3 +141,6 @@ function e() {
         emacs --daemon
     fi
 }
+
+alias c="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+alias sg="ssh sg"
