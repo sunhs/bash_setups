@@ -145,3 +145,4 @@ function e() {
 alias ls='ls --color'
 alias cown='sudo chown -R zhuhaisheng:zhuhaisheng'
 alias tm='tmux a -t fuck -d'
+alias c='code'
