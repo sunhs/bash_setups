@@ -113,7 +113,7 @@ export CONDA_HOME=$HOME/conda
 export CUDA_HOME=/usr/local/cuda
 export LIBRARY_PATH=$CUDA_HOME/lib64:/usr/local/lib:/usr/lib:/usr/lib/x86_64-linux-gnu:/lib:/lib/x86_64-linux-gnu
 export LD_LIBRARY_PATH=$LIBRARY_PATH
-export PATH=$HOME/.local/bin:$CONDA_HOME/bin:$HOME/go/bin:$PATH:${CUDA_HOME}/bin:/opt/homebrew/bin
+export PATH=$HOME/.cargo/bin:$HOME/.local/bin:$CONDA_HOME/bin:$HOME/go/bin:$PATH:${CUDA_HOME}/bin:/opt/homebrew/bin
 export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/mlplat
 
 ## sources
@@ -124,13 +124,13 @@ alias grep='grep --color=auto'
 alias kc='kubectl'
 
 function emk() {
-    emd_pid=$(ps aux | grep "[e]macs --daemon" | awk '{print $2}')
+    emd_pid=$(ps aux | grep "[e]macs.*-daemon" | awk '{print $2}')
     if [ "$emd_pid" != "" ]; then
         kill -9 $emd_pid
     fi
 }
 function e() {
-    emd_exists=$(ps aux | grep "[e]macs --daemon" | wc -l)
+    emd_exists=$(ps aux | grep "[e]macs.*-daemon" | wc -l)
     if [ $emd_exists -ne 0 ]; then
         if [ "$LC_TERMINAL" = "iTerm2" -a -f "$HOME/.terminfo/78/xterm-24bit" ]; then
             TERM=xterm-24bit emacsclient -nw $@
@@ -144,3 +144,4 @@ function e() {
 
 alias c="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 alias sg="ssh sg"
+alias cg="cargo"
