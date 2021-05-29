@@ -138,7 +138,7 @@ function e() {
             emacsclient -nw $@
         fi
     else
-        emacs --daemon
+        emacs --daemon && emacsclient -nw $@
     fi
 }
 
