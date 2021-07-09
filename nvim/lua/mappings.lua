@@ -1,0 +1,11 @@
+local map = vim.api.nvim_set_keymap
+map('n', '<space>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>', {})
+map('n', '<space>bb', '<cmd>lua require("telescope.builtin").oldfiles()<cr>', {})
+map('n', '<c-s>', '<cmd>lua require("telescope.builtin").grep_string()<cr>', {})
+map('n', '<space><space>', '<cmd>lua require("telescope.builtin").commands()<cr>', {})
+map('n', 'r', '<c-r>', {})
+map('i', 'fd', '<Esc>', {})
+map('', '<m-j>', '<c-d>', {})
+map('', '<m-k>', '<c-u>', {})
+map('', '<s-h>', '^', {})
+map('', '<s-l>', '$', {})
