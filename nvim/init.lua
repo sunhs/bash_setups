@@ -4,6 +4,7 @@ vim.api.nvim_exec(
 set number
 set autoindent
 set expandtab
+set shiftwidth=0
 set ts=4
 set encoding=utf-8
 set fileencoding=utf-8
@@ -56,4 +57,5 @@ require('lsp')
 
 vim.api.nvim_exec([[
 autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
+colorscheme gruvbox
 ]], false)
