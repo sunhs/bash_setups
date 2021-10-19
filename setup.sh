@@ -20,8 +20,8 @@ cd shrc && bash install.sh $shell_chosen $platform && cd - || exit 1
 printf "${GREEN}>>>>>>>>>> Installing fastjump${NOCOLOR}\n"
 cd fastjump && bash install.sh && cd - || exit 1
 
-printf "${GREEN}>>>>>>>>>> Installing vim color scheme${NOCOLOR}\n"
-cd vim && bash install.sh && cd - || exit 1
+#printf "${GREEN}>>>>>>>>>> Installing vim color scheme${NOCOLOR}\n"
+#cd vim && bash install.sh && cd - || exit 1
 
 if [ $platform = "linux" ]; then
     printf "${GREEN}>>>>>>>>>> Installing tmux${NOCOLOR}\n"
