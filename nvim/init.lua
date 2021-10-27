@@ -15,7 +15,7 @@ syntax on
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"zz" | endif
 endif
 
 " Uncomment the following to have Vim load indentation rules and plugins
@@ -34,6 +34,12 @@ set incsearch		" Incremental search
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden		" Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
 ]], false)
 
 require('packer').startup(function(use)
@@ -57,5 +63,5 @@ require('lsp')
 
 vim.api.nvim_exec([[
 autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
-colorscheme gruvbox
+colorscheme atom
 ]], false)
