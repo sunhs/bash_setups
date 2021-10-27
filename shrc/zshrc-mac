@@ -131,7 +131,7 @@ function emk() {
 }
 function e() {
     term=xterm-24bit
-    emd_exists=$(ps aux | grep -i "emacs.*-daemon" | wc -l)
+    emd_exists=$(ps aux | grep -i "[e]macs.*-daemon" | wc -l)
     if [ $emd_exists -eq 0 ]; then
         TERM=$term emacs --daemon
     fi
