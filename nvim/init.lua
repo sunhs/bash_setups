@@ -9,6 +9,7 @@ set ts=4
 set encoding=utf-8
 set fileencoding=utf-8
 set autochdir
+set guicursor=i:hor20-Cursor
 syntax on
 :imap fd <Esc>
 
