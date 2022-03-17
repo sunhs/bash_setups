@@ -132,7 +132,8 @@ alias kc-in='kubectl --kubeconfig ~/.kube/rancher --context rancher-in'
 function emk() {
     emd_pid=$(ps aux | grep "[e]macs.*-daemon" | awk '{print $2}')
     if [ "$emd_pid" != "" ]; then
-        kill -9 $emd_pid
+        # kill -9 $emd_pid
+        emacsclient -e '(kill-emacs)'
     fi
 }
 function e() {
