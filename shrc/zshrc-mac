@@ -122,12 +122,12 @@ source $HOME/.local/bin/fj.sh
 ## aliases
 alias grep='grep --color=auto'
 alias kc='kubectl'
-alias kc-sg='kubectl --kubeconfig ~/.kube/rancher --context rancher-sg'
+alias kcsg='kubectl --kubeconfig ~/.kube/admin --context sg'
 alias kc-test-sg='kubectl --kubeconfig ~/.kube/rancher --context rancher-test-sg'
-alias kc-eu='kubectl --kubeconfig ~/.kube/rancher --context rancher-eu'
-alias kc-na='kubectl --kubeconfig ~/.kube/rancher --context rancher-na'
-alias kc-cn='kubectl --kubeconfig ~/.kube/rancher --context rancher-cn'
-alias kc-in='kubectl --kubeconfig ~/.kube/rancher --context rancher-in'
+alias kceu='kubectl --kubeconfig ~/.kube/admin --context eu'
+alias kcna='kubectl --kubeconfig ~/.kube/admin --context na'
+alias kccn='kubectl --kubeconfig ~/.kube/admin --context cn'
+alias kcin='kubectl --kubeconfig ~/.kube/admin --context in'
 
 function emk() {
     emd_pid=$(ps aux | grep "[e]macs.*-daemon" | awk '{print $2}')
