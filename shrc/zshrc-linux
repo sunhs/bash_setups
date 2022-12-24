@@ -113,7 +113,7 @@ export CONDA_HOME=$HOME/conda
 export CUDA_HOME=/usr/local/cuda
 export LIBRARY_PATH=$CUDA_HOME/lib64:/usr/local/lib:/usr/lib:/usr/lib/x86_64-linux-gnu:/lib:/lib/x86_64-linux-gnu
 export LD_LIBRARY_PATH=$LIBRARY_PATH
-export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH:${CUDA_HOME}/bin
+export PATH=$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$PATH:${CUDA_HOME}/bin
 export KUBECONFIG=$HOME/.kube/admin:$HOME/.kube/mlplat
 
 ## sources
@@ -142,12 +142,12 @@ function e() {
     if [ $emd_exists -eq 0 ]; then
         TERM=$term emacs --daemon
     fi
-    TERM=$term emacsclient -nw $@
+        TERM=$term emacsclient -nw $@
 }
 
 alias ls='ls --color'
 alias cown='sudo chown -R zhuhaisheng:zhuhaisheng'
-alias tm='tmux a -t fuck -d'
+alias tmux='TERM=screen-256color tmux'
 alias c='code'
 alias flush='echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"'
 
