@@ -134,6 +134,9 @@ source "$OSH"/oh-my-bash.sh
 
 export LANG=en_US.UTF-8
 export LC_ALL=C.UTF-8
+export HISTCONTROL=ignoredups
+export HISTSIZE=5000
+export HISTORY_FILE=$HOME/.bash_history
 
 if [ ! -d $HOME/.terminfo/x/xterm-24bit ]; then
     export TERM=xterm-256color
@@ -144,6 +147,8 @@ fi
 # export QT_XKB_CONFIG_ROOT=/usr/share/X11/xkb
 bind 'set completion-ignore-case on'
 bind 'set show-all-if-ambiguous on'
+bind '"\ep": previous-history'
+bind '"\en": next-history'
 
 ## paths
 export CONDA_HOME=$HOME/conda
@@ -152,7 +157,6 @@ export LIBRARY_PATH=$CUDA_HOME/lib64:/usr/local/lib:/usr/lib:/usr/lib/x86_64-lin
 export LD_LIBRARY_PATH=$LIBRARY_PATH
 export PATH=$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$PATH:${CUDA_HOME}/bin
 export KUBECONFIG=$HOME/.kube/admin:$HOME/.kube/mlplat
-export HISTCONTROL=ignoredups
 
 ## sources
 source $HOME/.local/bin/fj.sh
