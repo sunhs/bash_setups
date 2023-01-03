@@ -138,10 +138,10 @@ export HISTCONTROL=ignoredups
 export HISTSIZE=5000
 export HISTORY_FILE=$HOME/.bash_history
 
-if [ ! -d $HOME/.terminfo/x/xterm-24bit ]; then
-    export TERM=xterm-256color
-else
+if [ -f $HOME/.terminfo/x/xterm-24bit ]; then
     export TERM=xterm-24bit
+else
+    export TERM=xterm-256color
 fi
 
 # export QT_XKB_CONFIG_ROOT=/usr/share/X11/xkb
