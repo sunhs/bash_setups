@@ -18,13 +18,15 @@ else
 fi
 
 if [ $shell_chosen = "bash" ]; then
-    bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
+    rm -rf ~/.oh-my-bash/
+    git clone https://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash
+    source ~/.bashrc
 
-    rm -f $HOME/.profile $HOME/.bashrc
-    ln -sf $(pwd)/bashrc-$platform $HOME/.profile
-    ln -sf $(pwd)/bashrc-$platform $HOME/.bashrc
+    rm -f ~/.profile ~/.bashrc*
+    ln -sf $(pwd)/bashrc-$platform ~/.profile
+    ln -sf $(pwd)/bashrc-$platform ~/.bashrc
 
-    cp -r oh-my-bash/* $HOME/.oh-my-bash/
+    cp -r $(pwd)/oh-my-bash/* ~/.oh-my-bash/
 else
-    ln -sf $(pwd)/zshrc-$platform $HOME/.zshrc
+    ln -sf $(pwd)/zshrc-$platform ~/.zshrc
 fi
