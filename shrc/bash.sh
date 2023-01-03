@@ -5,7 +5,7 @@ case $- in
 esac
 
 # Path to your oh-my-bash installation.
-export OSH='/home/zhuhaisheng/.oh-my-bash'
+export OSH="$HOME/.oh-my-bash"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
@@ -96,9 +96,9 @@ plugins=(
 # Which plugins would you like to conditionally load? (plugins can be found in ~/.oh-my-bash/plugins/*)
 # Custom plugins may be added to ~/.oh-my-bash/custom/plugins/
 # Example format: 
-if [ "$DISPLAY" ] || [ "$SSH" ]; then
-    plugins+=(tmux-autoattach)
-fi
+# if [ "$DISPLAY" ] || [ "$SSH" ]; then
+#     plugins+=(tmux-autoattach)
+# fi
 
 source "$OSH"/oh-my-bash.sh
 
@@ -132,76 +132,12 @@ source "$OSH"/oh-my-bash.sh
 
 
 
-export LANG=en_US.UTF-8
-export LC_ALL=C.UTF-8
 export HISTCONTROL=ignoredups
 export HISTSIZE=5000
 export HISTORY_FILE=$HOME/.bash_history
-
-if [ -f $HOME/.terminfo/x/xterm-24bit ]; then
-    export TERM=xterm-24bit
-else
-    export TERM=xterm-256color
-fi
 
 # export QT_XKB_CONFIG_ROOT=/usr/share/X11/xkb
 bind 'set completion-ignore-case on'
 bind 'set show-all-if-ambiguous on'
 bind '"\ep": previous-history'
 bind '"\en": next-history'
-
-## paths
-export CONDA_HOME=$HOME/conda
-export CUDA_HOME=/usr/local/cuda
-export LIBRARY_PATH=$CUDA_HOME/lib64:/usr/local/lib:/usr/lib:/usr/lib/x86_64-linux-gnu:/lib:/lib/x86_64-linux-gnu
-export LD_LIBRARY_PATH=$LIBRARY_PATH
-export PATH=$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$PATH:${CUDA_HOME}/bin
-export KUBECONFIG=$HOME/.kube/admin:$HOME/.kube/mlplat
-
-## sources
-source $HOME/.local/bin/fj.sh
-
-## aliases
-alias grep='grep --color=auto'
-alias kc='kubectl'
-alias kcsg='kubectl --kubeconfig ~/.kube/admin --context sg'
-alias kc-test-sg='kubectl --kubeconfig ~/.kube/rancher --context rancher-test-sg'
-alias kceu='kubectl --kubeconfig ~/.kube/admin --context eu'
-alias kcna='kubectl --kubeconfig ~/.kube/admin --context na'
-alias kccn='kubectl --kubeconfig ~/.kube/admin --context cn'
-alias kcin='kubectl --kubeconfig ~/.kube/admin --context in'
-
-function emk() {
-    emd_pid=$(ps aux | grep "[e]macs --daemon" | awk '{print $2}')
-    if [ "$emd_pid" != "" ]; then
-        # kill -9 $emd_pid
-        emacsclient -e '(kill-emacs)'
-    fi
-}
-function e() {
-    emd_exists=$(ps aux | grep "[e]macs --daemon" | wc -l)
-    if [ $emd_exists -eq 0 ]; then
-        emacs --daemon
-    fi
-        emacsclient -nw $@
-}
-
-alias ls='ls --color'
-alias cown='sudo chown -R zhuhaisheng:zhuhaisheng'
-alias tmux='TERM=screen-256color tmux'
-alias flush='echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"'
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/zhuhaisheng/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/zhuhaisheng/conda/etc/profile.d/conda.sh" ]; then
-        . "/home/zhuhaisheng/conda/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/zhuhaisheng/conda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
