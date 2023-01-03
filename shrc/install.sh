@@ -18,18 +18,11 @@ else
 fi
 
 if [ $shell_chosen = "bash" ]; then
-    profile="$HOME/.bashrc"
+    bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 
-    if [ -f "$HOME/.bash_profile" ]; then
-        profile="$HOME/.bash_profile"
-    fi
-
-    if [ -f "$HOME/.profile" ]; then
-      profile="$HOME/.profile"
-    fi
-
+    rm $HOME/.profile $HOME/.bashrc
+    ln -sf $(pwd)/bashrc $HOME/.profile
     ln -sf $(pwd)/bashrc $HOME/.bashrc
-    ln -sf $(pwd)/bashrc $HOME/$profile
 else
     ln -sf $(pwd)/zshrc-$platform $HOME/.zshrc
 fi
