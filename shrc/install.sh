@@ -23,6 +23,8 @@ if [ $shell_chosen = "bash" ]; then
     rm $HOME/.profile $HOME/.bashrc
     ln -sf $(pwd)/bashrc $HOME/.profile
     ln -sf $(pwd)/bashrc $HOME/.bashrc
+
+    cp -r oh-my-bash $HOME/.oh-my-bash
 else
     ln -sf $(pwd)/zshrc-$platform $HOME/.zshrc
 fi
