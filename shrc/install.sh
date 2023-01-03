@@ -21,8 +21,8 @@ if [ $shell_chosen = "bash" ]; then
     bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 
     rm -f $HOME/.profile $HOME/.bashrc
-    ln -sf $(pwd)/bashrc $HOME/.profile
-    ln -sf $(pwd)/bashrc $HOME/.bashrc
+    ln -sf $(pwd)/bashrc-$platform $HOME/.profile
+    ln -sf $(pwd)/bashrc-$platform $HOME/.bashrc
 
     cp -r oh-my-bash $HOME/.oh-my-bash
 else
