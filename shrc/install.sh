@@ -24,7 +24,7 @@ if [ $shell_chosen = "bash" ]; then
     ln -sf $(pwd)/bashrc-$platform $HOME/.profile
     ln -sf $(pwd)/bashrc-$platform $HOME/.bashrc
 
-    cp -r oh-my-bash $HOME/.oh-my-bash
+    cp -r oh-my-bash/* $HOME/.oh-my-bash/
 else
     ln -sf $(pwd)/zshrc-$platform $HOME/.zshrc
 fi
