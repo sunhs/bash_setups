@@ -25,13 +25,13 @@ alias kccn='kubectl --kubeconfig ~/.kube/admin --context cn'
 alias kcin='kubectl --kubeconfig ~/.kube/admin --context in'
 
 function emk() {
-    emd_pid=$(ps aux | grep "[e]macs.*-daemon" | awk '{print $2}')
+    emd_pid=$(ps aux | grep "[e]macs.*-daemon" | grep -v gnupg | awk '{print $2}')
     if [ "$emd_pid" != "" ]; then
         emacsclient -e '(kill-emacs)'
     fi
 }
 function e() {
-    emd_exists=$(ps aux | grep -i "[e]macs.*-daemon" | wc -l)
+    emd_exists=$(ps aux | grep -i "[e]macs.*-daemon" | grep -v gnupg | wc -l)
     if [ $emd_exists -eq 0 ]; then
         emacs --daemon
     fi
