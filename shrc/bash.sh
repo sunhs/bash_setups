@@ -1,3 +1,9 @@
+export HISTCONTROL=ignoredups
+export HISTSIZE=5000
+export HISTORY_FILE=$HOME/.bash_history
+
+
+
 # Enable the subsequent settings only in interactive sessions
 case $- in
   *i*) ;;
@@ -131,10 +137,6 @@ source "$OSH"/oh-my-bash.sh
 # alias ohmybash="mate ~/.oh-my-bash"
 
 
-
-export HISTCONTROL=ignoredups
-export HISTSIZE=5000
-export HISTORY_FILE=$HOME/.bash_history
 
 # export QT_XKB_CONFIG_ROOT=/usr/share/X11/xkb
 bind 'set completion-ignore-case on'

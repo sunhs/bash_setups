@@ -2,6 +2,7 @@ shell_chosen=$1
 platform=$2
 
 tmpfn="tmp.sh"
+touch $tmpfn
 
 echo "Setting up ${shell_chosen} for ${platform}"
 
@@ -14,9 +15,9 @@ if [ $shell_chosen = "bash" ]; then
     cp -r $(pwd)/oh-my-bash/* ~/.oh-my-bash/
 fi
 
-cp "${shell_chosen}.sh" $tmpfn
 cat common.sh >> $tmpfn
 cat "${platform}.sh" >> $tmpfn
+cat "${shell_chosen}.sh" >> $tmpfn
 
 rm -f ~/.${shell_chosen}rc*
 mv $tmpfn ~/.${shell_chosen}rc
