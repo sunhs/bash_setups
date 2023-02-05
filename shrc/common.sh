@@ -39,5 +39,4 @@ function e() {
     emacsclient -nw $@
 }
 
-alias ls='ls --color'
 alias flush='echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"'

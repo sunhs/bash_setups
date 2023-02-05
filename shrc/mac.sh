@@ -13,3 +13,5 @@ export KUBECONFIG=$HOME/.kube/admin:$HOME/.kube/mlplat
 alias c="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 alias sg="ssh -t sg 'TERM=screen-256color tmux a -t fuck -d'"
 alias cg="cargo"
+alias ls='ls -G'
+alias ll='ls -lG'

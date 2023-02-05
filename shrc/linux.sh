@@ -13,6 +13,8 @@ export KUBECONFIG=$HOME/.kube/admin:$HOME/.kube/mlplat
 ## aliases
 alias cown='sudo chown -R zhuhaisheng:zhuhaisheng'
 alias tmux='TERM=screen-256color tmux'
+alias ls='ls --color'
+alias ll='ls --color -l'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
