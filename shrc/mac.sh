@@ -10,7 +10,6 @@ export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.cargo/bin:$HOME/.local/b
 export KUBECONFIG=$HOME/.kube/admin:$HOME/.kube/mlplat
 
 ## aliases
-alias c="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 alias sg="ssh -t sg 'TERM=screen-256color tmux a -t fuck -d'"
 alias cg="cargo"
 alias ls='ls -G'
