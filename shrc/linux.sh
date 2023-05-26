@@ -12,6 +12,7 @@ export KUBECONFIG=$HOME/.kube/admin:$HOME/.kube/mlplat
 
 ## aliases
 alias cown='sudo chown -R zhuhaisheng:zhuhaisheng'
+alias sg="ssh -t sg 'TERM=screen-256color tmux a -t fuck -d'"
 alias tmux='TERM=screen-256color tmux'
 alias ls='ls --color'
 alias ll='ls --color -l'
