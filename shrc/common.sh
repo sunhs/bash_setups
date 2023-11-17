@@ -26,6 +26,8 @@ alias kccn='kubectl --kubeconfig ~/.kube/admin --context cn'
 alias kcin='kubectl --kubeconfig ~/.kube/admin --context in'
 alias flush='echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"'
 alias c='code'
+alias ca='conda activate'
+alias cda='conda deactivate'
 
 function emk() {
     emd_pid=$(ps aux | grep "[e]macs.*-daemon" | grep -v gnupg | awk '{print $2}')
